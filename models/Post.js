@@ -12,7 +12,12 @@ Post.init({
         primaryKey: true
      },
 
-    comment: {
+     title: {
+         type: DataTypes.STRING,
+         allowNull: false
+     },
+
+    description: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

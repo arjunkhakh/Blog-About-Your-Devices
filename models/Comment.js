@@ -5,15 +5,19 @@ class Comment extends Model {}
 
 Comment.init(
     {
-      id: {
+
+     id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
+
       comment_text: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -22,6 +26,7 @@ Comment.init(
           key: "id",
         },
       },
+
       post_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -30,6 +35,7 @@ Comment.init(
           key: "id",
         },
       },
+
     },
     {
       sequelize,
