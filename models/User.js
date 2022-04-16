@@ -4,8 +4,8 @@ const bcrypt = require ('bcrypt');
 
 class User extends Model {}
 
-User.init({
-
+User.init(
+  {
     id: {
        type: DataTypes.INTEGER,
        allowNull: false,
@@ -41,8 +41,6 @@ User.init({
             return updatedUserData;
           },
         },
-    
-
     
     sequelize,
     timestamps: false,
