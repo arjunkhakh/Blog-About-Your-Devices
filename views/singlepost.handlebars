@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post</title>
-</head>
-<body>
-    
-</body>
-</html>
+<center>
+<div class="card">
+    <div class="card-body">
+    <h3>{{post.title}}</a></h3>
+    <p>{{post.description}}</p>
+    <label for="created_at">{{post.created_at}}</label>
+     </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+    <p>{{post.comment.comment}}<p>
+    <label for="created_at">{{post.comment.created_at}}</label>
+     </div>
+</div>
+    </center>

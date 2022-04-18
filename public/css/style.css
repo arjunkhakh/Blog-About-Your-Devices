@@ -1,3 +1,22 @@
-* {
+body {
     background-color: lightblue;
+}
+
+header {
+    background-color: lightblue;
+}
+
+.card {
+    background-color: lightcyan;
+}
+
+h1 {
+    margin: 3%;
+    text-align: center;
+    background-color: lightblue;
+}
+
+li {
+    list-style-type: none;
+    align-items: center;
 }
