@@ -6,11 +6,11 @@ router.get("/", async (req, res) => {
   console.log(req.session);
 
   Post.findAll({
-    attributes: ["id", "description", "title", "created_at"],
+    attributes: ["id", "description", "title", "date_posted"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -69,11 +69,11 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "description", "title", "created_at"],
+    attributes: ["id", "description", "title", "date_posted"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -88,6 +88,8 @@ router.get("/post/:id", (req, res) => {
       }
 
       const post = postData.get({ plain: true });
+      console.log(post.comments[0].comment)
+      console.log(post.comments[0].user.username)
       res.render("singlepost", {
         post,
         loggedIn: req.session.loggedIn,

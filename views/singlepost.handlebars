@@ -3,14 +3,17 @@
     <div class="card-body">
     <h3>{{post.title}}</a></h3>
     <p>{{post.description}}</p>
-    <label for="created_at">{{post.created_at}}</label>
+    <label for="created_at">{{format_date post.date_posted}}</label>
      </div>
 </div>
-
+<br>
+<br>
 <div class="card">
+    {{#each post.comments as |comment|}}
     <div class="card-body">
-    <p>{{post.comment.comment}}<p>
-    <label for="created_at">{{post.comment.created_at}}</label>
+    <p>{{comment.comment}}<p>
+    <label>Comment Made By {{comment.user.username}}</label>
      </div>
 </div>
+{{/each}}
     </center>

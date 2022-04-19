@@ -1,19 +1,52 @@
     <h1>Login</h1>
+    <center>
+  
+    <div class="row d-flex justify-content-center">
+      <div class="col-10 col-md-6 p-4 shadow-lg p-md-5 my-4 bg-white rounded">
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username-login">Username: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="user-login"
+              placeholder="Username"
+              autocomplete="username"
+            />
+            <small id="username-help" class="form-text text-muted">We'll never
+              share your information with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="user-password">Password: </label>
+            <input
+              type="password"
+              class="form-control"
+              id="password-login"
+              placeholder="Password"
+              autocomplete="current-password"
+            />
+          </div>
+          <div
+            id="login_error"
+            class="alert alert-warning font-weight-bolder text-center invisible text-break"
+            role="alert"
+          >
+          </div>
+          <button
+            type="submit"
+            class="btn-block btn btn-primary font-weight-bold mt-3"
+          > Log In <i class="fas fa-sign-in-alt"> </i></button>
+        </form>
+        <br>
+        {{!-- No Account?
+        <br>
+        <button class="btn-block btn btn-light font-weight-bold mt-2">
+          <a href="/signup">Sign Up Here!</a></button> --}}
+      </div>
+    </div>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
+
+
   <div class="col-md-6">
     <h2>Signup</h2>
 
@@ -37,3 +70,6 @@
   </div>
 </div>
 
+</center>
+
+ <script src="/js/login.js"></script>

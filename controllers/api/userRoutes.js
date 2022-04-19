@@ -21,11 +21,11 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "title", "description", "created_at"],
+        attributes: ["id", "title", "description", "date_posted"],
       },
       {
         model: Comment,
-        attributes: ["id", "comment", "created_at"],
+        attributes: ["id", "comment"],
         include: {
           model: Post,
           attributes: ["title"],
@@ -47,13 +47,13 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   User.create({
-    user_name: req.body.user_name,
+    username: req.body.username,
     password: req.body.password,
   })
     .then((userData) => {
       req.session.save(() => {
         req.session.user_id = userData.id;
-        req.session.user_name = userData.user_name;
+        req.session.username = userData.username;
         req.session.loggedIn = true;
 
         res.json(userData);
@@ -68,7 +68,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      user_name: req.body.user_name,
+      username: req.body.username,
     },
   }).then((userData) => {
     if (!userData) {
@@ -87,7 +87,7 @@ router.post("/login", (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.user_name = userData.user_name;
+      req.session.username = userData.username;
       req.session.loggedIn = true;
 
       res.json({ user: userData, message: "Login successful" });
